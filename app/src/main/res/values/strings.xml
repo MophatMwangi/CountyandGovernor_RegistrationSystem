@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CountyandGovernor_RegistrationSystem</string>
+    <string name="subtitle">
+        Nice to meet you, come join our community!
+        <br><b>Login</b> if you already have and account.</br>
+        <br><b>Register</b>to get staeted with the app.</br>
+
+    </string>
+</resources>
