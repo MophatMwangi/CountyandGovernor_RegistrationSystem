@@ -98,7 +98,7 @@ class GovernorAdapter(nctx : Context, val governors: ArrayList<GovernorModel> ):
     }
 
 
-    class ViewHolder(itemView : View):RecyclerView.ViewHolder(itemView)
+    inner class ViewHolder(itemView : View):RecyclerView.ViewHolder(itemView)
     {
        var txt_fname = itemView.findViewById<TextView>(R.id.f_name_txt)
        var txt_dob = itemView.findViewById<TextView>(R.id.dob_txt)

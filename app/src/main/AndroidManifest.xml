@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.strath.countyandgovernor_registrationsystem">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CountyandGovernor_RegistrationSystem">
+        <activity
+            android:name=".views.Reports"
+            android:exported="false" />
+        <activity android:name=".recview.EdFarm" />
         <activity android:name=".views.Sign" />
-        <activity android:name=".views.Login"/>
+        <activity android:name=".views.Login" />
         <activity android:name=".dashboard.Dashboard" />
         <activity android:name=".recview.countyRecView" />
         <activity android:name=".recview.governorRecView" />

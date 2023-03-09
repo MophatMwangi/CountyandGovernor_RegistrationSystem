@@ -30,7 +30,7 @@ class CountyAdapter(nctx : Context, val county: ArrayList<CountyModel> ):  Recyc
 
 
 
-    class CountyViewHolder(view: View): RecyclerView.ViewHolder(view)
+    inner class CountyViewHolder(view: View): RecyclerView.ViewHolder(view)
     {
         var cn = view.findViewById<TextView>(R.id.countyname_txt)
         var pop = view.findViewById<TextView>(R.id.pop_txt)
@@ -40,8 +40,9 @@ class CountyAdapter(nctx : Context, val county: ArrayList<CountyModel> ):  Recyc
         var no_schools = view.findViewById<TextView>(R.id.nos_txt)
         var no_hospitals = view.findViewById<TextView>(R.id.noh_txt)
         var gv = view.findViewById<TextView>(R.id.cgovernor_txt)
-        var btnDelete = view.findViewById<ImageButton>(R.id.delete_btn)
-         var btnEdit = view.findViewById<ImageButton>(R.id.edit_btn)
+        var btnDelete = view.findViewById<Button>(R.id.delete_btn)
+         var btnEdit = view.findViewById<Button>(R.id.edit_btn)
+
 
         fun bindView(county: CountyModel)
         {

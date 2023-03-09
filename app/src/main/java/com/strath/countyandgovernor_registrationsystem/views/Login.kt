@@ -32,8 +32,8 @@ class Login : AppCompatActivity() {
         val query="SELECT * FROM login_form WHERE usernames='"+username+"' AND passwords='"+password+"'"
         val rs=dbHelp.rawQuery(query,null)
         if(rs.moveToFirst()){
-            val name=rs.getString(rs.getColumnIndex("usernames"))
-            val pass = rs.getString(rs.getColumnIndex("passwords"))
+            val name=rs.getString(rs.getColumnIndexOrThrow("usernames"))
+            val pass = rs.getString(rs.getColumnIndexOrThrow("passwords"))
             rs.close()
             val intent = Intent(this , Dashboard::class.java)
             startActivity(intent)

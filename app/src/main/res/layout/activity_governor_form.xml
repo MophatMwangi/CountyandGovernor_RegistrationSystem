@@ -12,9 +12,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
+
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:src="@drawable/ic_report"
 
             />
@@ -42,47 +43,64 @@
             >
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="?attr/textInputFilledStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
+        app:endIconMode="clear_text"
+        app:helperText="required"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="false"
+        app:counterMaxLength="4"
         android:hint="Full Name"
         android:id="@+id/f_name"
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fnameContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/baseline_person_24"
+            android:maxLength="20"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
+        app:endIconMode="clear_text"
+        app:helperText="required"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="false"
+        app:counterMaxLength="4"
         android:hint="Date of birth"
         android:id="@+id/dob"
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dob_txt_in"
+            android:maxLength="11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none" />
+            android:drawableRight="@drawable/baseline_calendar_month_24"
+            android:inputType="date" />
     </com.google.android.material.textfield.TextInputLayout>
 
       <!--gender since we have only two types of gender male or female we use it as fixed categories-->
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
+        app:counterEnabled="false"
         android:hint="Gender"
         android:id="@+id/gender"
         >
@@ -97,77 +115,108 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
+        app:endIconMode="clear_text"
+        app:helperText="required"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="false"
+        app:counterMaxLength="4"
         android:hint="Address"
         android:id="@+id/address"
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/addressContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:inputType="number"
+            android:maxLength="6"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
+        app:endIconMode="clear_text"
+        app:helperText="required"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="false"
+        app:counterMaxLength="4"
         android:hint="City"
         android:id="@+id/city"
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cityContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength="10"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!--Drop down for county since we have fixed counties we will make an array-->
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
+        app:endIconMode="clear_text"
+        app:helperText="required"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="false"
+        app:counterMaxLength="20"
         android:hint="Email"
         android:id="@+id/email"
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:maxLength="20"
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
+        app:endIconMode="clear_text"
+        app:helperText="required"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="false"
+        app:counterMaxLength="4"
+        app:prefixText="+254"
+        app:prefixTextColor="@color/teal_200"
         android:hint="Phone Number"
         android:id="@+id/pn"
         >
-
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pnContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:maxLength="9"
+            android:drawableLeft="@drawable/baseline_local_phone_24"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -201,6 +250,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="16dp"
         android:textStyle="bold"
+        android:enabled="true"
         />
         </LinearLayout>
     </ScrollView>

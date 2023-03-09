@@ -5,21 +5,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import com.strath.countyandgovernor_registrationsystem.dashboard.Dashboard
-import com.strath.countyandgovernor_registrationsystem.data.conncetionHelper
+import com.strath.countyandgovernor_registrationsystem.data.*
 import com.strath.countyandgovernor_registrationsystem.views.Login
 import com.strath.countyandgovernor_registrationsystem.views.Sign
+
 
 class MainActivity : AppCompatActivity() {
     companion object {
         private lateinit var db: conncetionHelper
-    }
-
+           }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         val loginbutton = findViewById<AppCompatButton>(R.id.login)
 
@@ -39,9 +37,8 @@ class MainActivity : AppCompatActivity() {
             db = conncetionHelper(this,null)
         }
 
-
-
     }
+
 
 
 }

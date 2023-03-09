@@ -2,7 +2,7 @@ package com.strath.countyandgovernor_registrationsystem.Model
 
 import java.util.*
 
-data class GovernorModel
+class GovernorModel
     (
     var id:Int = CountyModel.getAutoId(),
     var fname : String = "",
@@ -15,6 +15,8 @@ data class GovernorModel
     var county :String = ""
 )
 {
+
+
     companion object
     {
         fun getAutoId():Int
@@ -24,4 +26,12 @@ data class GovernorModel
         }
     }
 
+    override fun toString(): String {
+
+         return "$county"
+    }
+
+
+
 }
+

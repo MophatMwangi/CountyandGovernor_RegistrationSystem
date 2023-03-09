@@ -1,23 +1,20 @@
 package com.strath.countyandgovernor_registrationsystem.recview
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.EditText
-import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.strath.countyandgovernor_registrationsystem.Adapters.CountyAdapter
-import com.strath.countyandgovernor_registrationsystem.Adapters.GovernorAdapter
 import com.strath.countyandgovernor_registrationsystem.Model.CountyModel
-import com.strath.countyandgovernor_registrationsystem.Model.GovernorModel
-
 import com.strath.countyandgovernor_registrationsystem.R
 import com.strath.countyandgovernor_registrationsystem.data.conncetionHelper
 import com.strath.countyandgovernor_registrationsystem.views.CountyForm
@@ -38,9 +35,14 @@ public class countyRecView : AppCompatActivity() {
 
         val fb_btn = findViewById<FloatingActionButton>(R.id.floatingActionbuttonCounty)
 
+         val progressBar = findViewById<ProgressBar>(R.id.countyProgressBar)
+         progressBar.max = 10
 
+        val currentProgress = 6
+        ObjectAnimator.ofInt(progressBar,"progress",currentProgress)
+            .setDuration(2000)
+            .start()
         getCounty()
-
 
 
         fb_btn.setOnClickListener{
@@ -95,20 +97,10 @@ public class countyRecView : AppCompatActivity() {
          countylist = db.getCountyList(this)
          adapter = CountyAdapter(this,countylist)
 
-
-         rv = findViewById(R.id.recyclerViewCounty)
+        rv = findViewById(R.id.recyclerViewCounty)
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = adapter
 
     }
-
-
-
-
-
-
-
-
-
 
 }

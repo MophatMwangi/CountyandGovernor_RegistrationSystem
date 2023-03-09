@@ -2,7 +2,6 @@ package com.strath.countyandgovernor_registrationsystem.data
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
@@ -61,31 +60,31 @@ class conncetionHelper (context: Context, factory: SQLiteDatabase.CursorFactory?
         // county form query
         val query = ("CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY, " +
-                NAME_COl + " TEXT," +
+                NAME_COl + " TEXT UNIQUE," +
                 POP_COl + " TEXT," +
                 AREA_COl + " TEXT," +
                 NOT_COl + " TEXT," +
-                COUNTY_COl + " TEXT," +
+                COUNTY_COl + " TEXT UNIQUE," +
                 SCHOOLS_COl + " TEXT," +
                 HOSPITALS_COl + " TEXT," +
-                GOVERNORS_COl + " TEXT" + ")")
+                GOVERNORS_COl + " TEXT UNIQUE" + ")")
             //governor query
        val lquery = ("CREATE TABLE " + TABLE_LOGIN + " ("
                 + LG_ID_COL + " INTEGER PRIMARY KEY, " +
-                FNAMES_COl + " TEXT," +
+                FNAMES_COl + " TEXT ," +
                 EMAILS_COl + " TEXT," +
-                PASSWORD_COl + " TEXT" + ")")
+                PASSWORD_COl + " TEXT UNIQUE" + ")")
             //login query
         val squery = ("CREATE TABLE " + TABLE_GOVERNOR + " ("
                 + GV_ID_COL + " INTEGER PRIMARY KEY, " +
-                FNAME_COl + " TEXT," +
+                FNAME_COl + " TEXT UNIQUE," +
                 DOB_COl + " TEXT," +
                 GENDER_COl + " TEXT," +
                 ADDRESS_COl + " TEXT," +
-                CITY_COl + " TEXT," +
+                CITY_COl + " TEXT UNIQUE," +
                 EMAIL_COl + " TEXT," +
-                PN_COl + " TEXT," +
-                COUNT_COl + " TEXT" + ")")
+                PN_COl + " TEXT UNIQUE," +
+                COUNT_COl + " TEXT UNIQUE" + ")")
 
 
         // we are calling sqlite
@@ -239,10 +238,50 @@ class conncetionHelper (context: Context, factory: SQLiteDatabase.CursorFactory?
 
              }
              Toast.makeText(ctx,"${cursor.count.toString()}Records Found",Toast.LENGTH_SHORT).show()
+
          }
            cursor.close()
            db.close()
            return countyList
+    }
+
+    fun getGovernorsList(): ArrayList<GovernorModel>/* MutableList<GovernorModel>*/ {
+
+        //var governorList :MutableList<GovernorModel> =ArrayList()
+        val governorList = ArrayList<GovernorModel> ()
+        val db = this.readableDatabase
+        val selectQuery = "SELECT * FROM $TABLE_GOVERNOR"
+        val rs = db.rawQuery(selectQuery,null)
+
+        if(rs.moveToFirst()){
+            do{
+
+                val governorL = GovernorModel()
+                governorL.id = rs.getInt(rs.getColumnIndexOrThrow(GV_ID_COL))
+                governorL.fname = rs.getString(rs.getColumnIndexOrThrow(FNAME_COl))
+                governorList.add(governorL)
+
+            }while(rs.moveToNext())
+        }
+
+        rs.close()
+        db.close()
+        return governorList
+    }
+
+    fun getCList() : Int {
+
+
+        var sum : Int = 0
+        val db = this.readableDatabase
+        val selectQuery = "SELECT population ,sum(population) as totalPop from county_form"
+        val rs = db.rawQuery(selectQuery,null)
+
+        if(rs.moveToFirst())
+
+          sum = rs.getInt(rs.getColumnIndexOrThrow("totalPop "))
+
+        return sum
     }
 
 
@@ -250,10 +289,10 @@ class conncetionHelper (context: Context, factory: SQLiteDatabase.CursorFactory?
     {
         val qry = "Delete From $TABLE_NAME where $ID_COL = $countyID"
         val db : SQLiteDatabase = this.writableDatabase
-        var result : Boolean = false
+        val result = false
         try {
             //val cursor:Int = db.delete(TABLE_NAME,"$ID_COL=?", arrayOf(countyID.toString()))
-             val cursor:Unit  = db.execSQL(qry)
+             //val cursor:Unit  = db.execSQL(qry)
         }catch (e: Exception)
         {
           Log.e(ContentValues.TAG,"Error Deleting")
@@ -315,10 +354,10 @@ class conncetionHelper (context: Context, factory: SQLiteDatabase.CursorFactory?
     {
         val qry = "Delete From $TABLE_GOVERNOR where $GV_ID_COL = $governorID"
         val db : SQLiteDatabase = this.writableDatabase
-        var result : Boolean = false
+        val result = false
         try {
             //val cursor:Int = db.delete(TABLE_NAME,"$ID_COL=?", arrayOf(countyID.toString()))
-            val cursor:Unit  = db.execSQL(qry)
+            //val cursor:Unit  = db.execSQL(qry)
         }catch (e: Exception)
         {
             Log.e(ContentValues.TAG,"Error Deleting")
@@ -390,3 +429,7 @@ class conncetionHelper (context: Context, factory: SQLiteDatabase.CursorFactory?
         return false
     }
 }
+
+
+
+
