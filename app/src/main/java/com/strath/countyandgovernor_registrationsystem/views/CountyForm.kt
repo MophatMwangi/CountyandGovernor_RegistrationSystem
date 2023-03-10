@@ -124,10 +124,11 @@ class CountyForm : AppCompatActivity() {
          val simp = gv
 
        val gvs = GovernorModel()
-        gvs.id
+
        val adapter = ArrayAdapter(this, R.layout.governor_list, gv)
        val autoCompleteTextView = findViewById<AutoCompleteTextView>(R.id.governor_name)
        autoCompleteTextView.setAdapter(adapter)
+
 
    }
     private fun pun()

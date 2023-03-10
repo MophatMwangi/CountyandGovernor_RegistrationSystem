@@ -24,4 +24,9 @@ data class CountyModel
             }
         }
 
+    override fun toString(): String {
+
+        return "$population"
+    }
+
 }

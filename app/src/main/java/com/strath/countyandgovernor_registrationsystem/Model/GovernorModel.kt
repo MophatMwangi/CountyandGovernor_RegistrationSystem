@@ -28,7 +28,7 @@ class GovernorModel
 
     override fun toString(): String {
 
-         return "$county"
+         return "$fname"+"$county"
     }
 
 
