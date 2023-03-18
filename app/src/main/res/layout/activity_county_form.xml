@@ -9,6 +9,7 @@
 
 
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,18 +46,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 android:hint="Governors"
-                app:errorEnabled="false">
-
+                >
 
                 <AutoCompleteTextView
                     android:id="@+id/governor_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#FFFFFF"
-                    android:editable="false"
                     android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -64,40 +63,36 @@
 
             <!--Drop down for county since we have fixed counties we will make an array-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/county_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="16dp"
-                android:hint="County Name">
-
-                <AutoCompleteTextView
-                    android:id="@+id/countyname_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#FFFFFF"
-                    android:editable="false"
-                    android:inputType="text" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/county_no"
+                android:id="@+id/countyname"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:hint="County Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/countynametype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/countyN"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 android:hint="County Number"
                 app:counterEnabled="false"
-                app:counterMaxLength="2"
-                app:prefixText="0"
+                app:counterMaxLength="20"
                 app:endIconMode="clear_text"
-                app:helperText="required"
                 app:helperTextEnabled="false"
                 app:helperTextTextColor="@color/red">
 
@@ -106,33 +101,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:inputType="number"
-                    android:maxLength="2" />
+                    android:inputType="none"
+                    android:maxLength="20" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/population"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="16dp"
-                android:hint="Population"
-                app:counterEnabled="false"
-                app:counterMaxLength="10"
-                app:endIconMode="clear_text"
-                app:helperText="required"
-                app:helperTextTextColor="@color/red">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/populationContainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#FFFFFF"
-                    android:inputType="number"
-                    android:maxLength="5" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -141,13 +112,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 android:hint="Area(Kmsqd)"
                 app:counterEnabled="false"
-                app:counterMaxLength="5"
+                app:counterMaxLength="7"
                 app:endIconMode="clear_text"
-                app:helperText="required"
                 app:helperTextTextColor="@color/red">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -156,25 +126,46 @@
                     android:layout_height="wrap_content"
                     android:background="#FFFFFF"
                     android:inputType="number"
-                    android:maxLength="5" />
+                    android:maxLength="7" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
-              <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/no_towns"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/population"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Population"
+                app:counterEnabled="false"
+                app:counterMaxLength="8"
+                app:endIconMode="clear_text"
+                app:helperTextTextColor="@color/red">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/populationContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:inputType="number"
+                    android:maxLength="8" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+              <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/towns"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 android:hint="Number of Towns"
                 app:counterEnabled="false"
                 app:counterMaxLength="2"
                 app:endIconMode="clear_text"
-                app:helperText="required"
-                app:helperTextEnabled="false"
                 app:helperTextTextColor="@color/red">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -189,19 +180,17 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/no_school"
+                android:id="@+id/school"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 android:hint="Number of Schools"
                 app:counterEnabled="false"
                 app:counterMaxLength="4"
                 app:endIconMode="clear_text"
-                app:helperText="required"
-                app:helperTextEnabled="false"
                 app:helperTextTextColor="@color/red">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -216,19 +205,17 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/no_hospitals"
+                android:id="@+id/hospitals"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 android:hint="Number of Hospitals"
                 app:counterEnabled="false"
                 app:counterMaxLength="4"
                 app:endIconMode="clear_text"
-                app:helperText="required"
-                app:helperTextEnabled="false"
                 app:helperTextTextColor="@color/red">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -248,7 +235,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/teal_200"
                 android:text="ADD"

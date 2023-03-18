@@ -44,12 +44,17 @@ class Sign : AppCompatActivity() {
             clearSign()
             if(TextUtils.isEmpty(fname) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
             {
-                Toast.makeText(this,"Add username, email and passwordd",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Add username, email and password",Toast.LENGTH_SHORT).show()
             }else
             {
-                db.addLogin(fname,email,password)
 
-                Toast.makeText(this, fname + " added to database", Toast.LENGTH_LONG).show()
+                val saveData = db.addLogin(fname,email,password)
+                if (saveData == true){
+                    Toast.makeText(this,"saved ",Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Toast.makeText(this,"username exist ",Toast.LENGTH_SHORT).show()
+                }
 
                 val intent = Intent(this , Login::class.java)
                 startActivity(intent)

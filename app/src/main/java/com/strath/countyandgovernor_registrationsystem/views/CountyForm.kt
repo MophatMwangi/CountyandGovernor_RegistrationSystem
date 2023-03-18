@@ -3,14 +3,12 @@ package com.strath.countyandgovernor_registrationsystem.views
 
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.Toast
-import android.widget.Toast.*
+import android.view.MenuItem
+import android.view.View
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.google.android.material.textfield.TextInputLayout
 import com.strath.countyandgovernor_registrationsystem.Model.GovernorModel
@@ -18,7 +16,6 @@ import com.strath.countyandgovernor_registrationsystem.R
 import com.strath.countyandgovernor_registrationsystem.data.conncetionHelper
 import com.strath.countyandgovernor_registrationsystem.databinding.ActivityCountyFormBinding
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class CountyForm : AppCompatActivity() {
@@ -40,27 +37,28 @@ class CountyForm : AppCompatActivity() {
 
      var governorlist = ArrayList<GovernorModel>()
 
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_county_form)
         binding = ActivityCountyFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         pun()
 
-        val items = listOf("nairobi","kiambu","muranga","Nyandarua","Kirinyaga","muranga","nyeri","turkana","west pokot","samburu","trans nzoia","uasin gishu","elgeyo-marakwet","nandi","baringo","laikipia","nakuru","narok","kajiado","kericho","Bomet","kisumu","homabay","migori","kisii","nyamira","siaya","vihiga","busia","kericho","bomet","kakamega","marsabit","isiolo","meru","tharaka-nithi","embu","kitui","machakos","makueni","garissa","wajir","mandera","kilifi","kwale","Lamu","Mombasa","taita taveta","tana river")
-        val adapter = ArrayAdapter(this,R.layout.county_list,items)
-        val   autoCompleteTextView = findViewById<AutoCompleteTextView>(R.id.countyname_type)
-        autoCompleteTextView.setAdapter(adapter)
+        val display = supportActionBar
+        display?.title = "CountyForm"
+        display?.setDefaultDisplayHomeAsUpEnabled(true)
+
+
 
          //input textfield
-         cn_input = findViewById<TextInputLayout>(R.id.county_name)
+         cn_input = findViewById<TextInputLayout>(R.id.countyname)
          pop_input= findViewById<TextInputLayout>(R.id.population)
          area_input=findViewById<TextInputLayout>(R.id.area)
-         not_input= findViewById<TextInputLayout>(R.id.no_towns)
-         cno_input= findViewById<TextInputLayout>(R.id.county_no)
-         nos_input= findViewById<TextInputLayout>(R.id.no_school)
-         noh_input= findViewById<TextInputLayout>(R.id.no_hospitals)
+         not_input= findViewById<TextInputLayout>(R.id.towns)
+         cno_input= findViewById<TextInputLayout>(R.id.countyN)
+         nos_input= findViewById<TextInputLayout>(R.id.school)
+         noh_input= findViewById<TextInputLayout>(R.id.hospitals)
          governor_input= findViewById<TextInputLayout>(R.id.governors)
 
 
@@ -72,36 +70,67 @@ class CountyForm : AppCompatActivity() {
         //button
         val addbutton = findViewById<AppCompatButton>(R.id.add_county)
         addbutton.setOnClickListener{
-           // Toast.makeText(this,"Hello morphy", LENGTH_SHORT).show()
-            val db = conncetionHelper(this, null)
-           val name = cn_input.editText?.text.toString()
-           val pop  =pop_input.editText?.text.toString()
-           val area = area_input.editText?.text.toString()
-           val not = not_input.editText?.text.toString()
-           val cno = cno_input.editText?.text.toString()
-           val nos = nos_input.editText?.text.toString()
-           val noh = noh_input.editText?.text.toString()
-           val governors = governor_input.editText?.text.toString()
+            if (TextUtils.isEmpty(binding.countynametype.text.toString())) {
+                binding.countyname.isErrorEnabled = false
+                binding.countyname.error = "enter county name"
+            } else if (TextUtils.isEmpty(binding.countyContainer.text.toString())) {
+                binding.countyN.isErrorEnabled = false
+                binding.countyN.error = "enter county number"
 
-            clearCounty()
+            } else if (TextUtils.isEmpty(binding.populationContainer.text.toString())) {
+                binding.population.isErrorEnabled = false
+                binding.population.error = "enter population"
+            } else if (TextUtils.isEmpty(binding.areaContainer.text.toString())) {
+                binding.area.isErrorEnabled = false
+                binding.area.error = "enter number of cities"
+            } else if (TextUtils.isEmpty(binding.townContainer.text.toString())) {
+                binding.towns.isErrorEnabled = false
+                binding.towns.error = "enter number of towns"
+            } else if (TextUtils.isEmpty(binding.schoolContainer.text.toString())) {
+                binding.school.isErrorEnabled = false
+                binding.school.error = "enter number of schools"}
+            else if (TextUtils.isEmpty(binding.hospitalContainer.text.toString())) {
+                binding.hospitals.isErrorEnabled = false
+                binding.hospitals.error = "enter number of hospitals"}else {
+                // Toast.makeText(this,"Hello morphy", LENGTH_SHORT).show()
+                val db = conncetionHelper(this, null)
+                val name = cn_input.editText?.text.toString()
+                val pop = pop_input.editText?.text.toString()
+                val area = area_input.editText?.text.toString()
+                val not = not_input.editText?.text.toString()
+                val cno = cno_input.editText?.text.toString()
+                val nos = nos_input.editText?.text.toString()
+                val noh = noh_input.editText?.text.toString()
+                val governors = governor_input.editText?.text.toString()
 
-            if(TextUtils.isEmpty(area) || TextUtils.isEmpty(cno) || TextUtils.isEmpty(nos) || TextUtils.isEmpty(noh))
-            {
-                Toast.makeText(this,"Add county number, schools and hospitals, area",Toast.LENGTH_SHORT).show()
-            }else
-            {
-                db.addCounty(name,pop,area,not,cno,nos,noh,governors)
-                Toast.makeText(this, name + " added to database", Toast.LENGTH_LONG).show()
+                clearCounty()
+
+                if (TextUtils.isEmpty(area) || TextUtils.isEmpty(cno) || TextUtils.isEmpty(nos) || TextUtils.isEmpty(
+                        noh
+                    )
+                ) {
+                    Toast.makeText(
+                        this,
+                        "Add county number, schools and hospitals, area",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    val saveData = db.addCounty(name, pop, area, not, cno, nos, noh, governors)
+
+                    if (saveData == true) {
+                        Toast.makeText(this, "saved ", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "exists ", Toast.LENGTH_SHORT).show()
+                    }
+
+                }
+
             }
-
-
         }
 
     }
 
-
-
-            fun clearCounty()
+                fun clearCounty()
           {
               cn_input.editText?.setText("")
               pop_input.editText?.setText("")
@@ -118,17 +147,41 @@ class CountyForm : AppCompatActivity() {
        var gv = arrayListOf<GovernorModel>()
        val db = conncetionHelper(this,null)
        val data = db.getGovernorsList()
+
        data.forEach(){
            gv.add(it)
        }
-         val simp = gv
 
-       val gvs = GovernorModel()
 
        val adapter = ArrayAdapter(this, R.layout.governor_list, gv)
        val autoCompleteTextView = findViewById<AutoCompleteTextView>(R.id.governor_name)
        autoCompleteTextView.setAdapter(adapter)
 
+       var gov = GovernorModel()
+       gov.id
+
+       autoCompleteTextView.setOnItemClickListener(object : AdapterView.OnItemClickListener {
+           override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+               Toast.makeText(applicationContext, " hello hello hello", Toast.LENGTH_LONG).show()
+               var item = gv.get(position)
+               var wisdom = item.fname
+               //cno_input.editText?.setText(item.fname)
+
+               val query = "SELECT * FROM  governor_form where first_name='$wisdom'"
+               var dbHelp = db.readableDatabase
+               val rs=dbHelp.rawQuery(query,null)
+
+               while (rs.moveToNext()) {
+                   val addC: String = rs.getString(rs.getColumnIndexOrThrow("county"))
+                   val addb: String = rs.getString(rs.getColumnIndexOrThrow("county_area"))
+                   val add: String = rs.getString(rs.getColumnIndexOrThrow("county_code"))
+                   cn_input.editText?.setText(addC)
+                   area_input.editText?.setText(addb)
+                   cno_input.editText?.setText(add)
+                   //System.out.println(add);
+               }
+           }
+       })
 
    }
     private fun pun()
@@ -158,7 +211,7 @@ class CountyForm : AppCompatActivity() {
         }
         if(phoneText.length != 10)
         {
-            return "Must be 10 Digits"
+            return "Must be all Digits"
         }
         return null
     }
@@ -227,7 +280,7 @@ class CountyForm : AppCompatActivity() {
         }
         if(countyText.length != 10)
         {
-            return "Must be 10 Digits"
+            return "Must be all Digits"
         }
         return null
     }

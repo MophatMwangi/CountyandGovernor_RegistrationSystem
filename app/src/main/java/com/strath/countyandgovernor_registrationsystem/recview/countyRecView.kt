@@ -33,6 +33,8 @@ public class countyRecView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_county_rec_view)
 
+
+
         val fb_btn = findViewById<FloatingActionButton>(R.id.floatingActionbuttonCounty)
 
          val progressBar = findViewById<ProgressBar>(R.id.countyProgressBar)

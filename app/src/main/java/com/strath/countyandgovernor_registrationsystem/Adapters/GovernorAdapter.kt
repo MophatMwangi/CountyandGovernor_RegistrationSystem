@@ -1,11 +1,13 @@
 package com.strath.countyandgovernor_registrationsystem.Adapters
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -27,6 +29,7 @@ class GovernorAdapter(nctx : Context, val governors: ArrayList<GovernorModel> ):
      return ViewHolder(v)
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
        val governor = governors[position]
         holder.bindView(governor)
@@ -72,18 +75,14 @@ class GovernorAdapter(nctx : Context, val governors: ArrayList<GovernorModel> ):
             val governor_name:String = governor.fname
             var alertDialog : AlertDialog? = AlertDialog.Builder(nctx)
                 .setTitle("Warning")
-                .setMessage("Are You sure to Delete: $governor_name ?" )
+                .setMessage("Are You sure you want to delete the governor's information: $governor_name ?" )
                 .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
                     if (governorRecView.db.deleteGovernor(governor.id))
-                    {
                         governors.removeAt(position)
                         notifyItemRemoved(position)
                         notifyItemRangeChanged(position,governors.size)
-                        Toast.makeText(nctx,"County $governor_name", Toast.LENGTH_SHORT).show()
-                    }else
-                    {
-                        Toast.makeText(nctx,"Error Deleting", Toast.LENGTH_SHORT).show()
-                    }
+                        Toast.makeText(nctx," Deleted successfully", Toast.LENGTH_SHORT).show()
+
                 }).setNegativeButton("No", DialogInterface.OnClickListener{ dialog, which ->  })
                 .setIcon(R.drawable.baseline_delete_24)
                 .show()
@@ -102,19 +101,21 @@ class GovernorAdapter(nctx : Context, val governors: ArrayList<GovernorModel> ):
     {
        var txt_fname = itemView.findViewById<TextView>(R.id.f_name_txt)
        var txt_dob = itemView.findViewById<TextView>(R.id.dob_txt)
+       var txt_age = itemView.findViewById<TextView>(R.id.age_txt)
        var txt_gender = itemView.findViewById<TextView>(R.id.gender_txt)
        var txt_address = itemView.findViewById<TextView>(R.id.address_txt)
        var txt_city = itemView.findViewById<TextView>(R.id.city_txt)
        var txt_email = itemView.findViewById<TextView>(R.id.email_txt)
        var txt_pn = itemView.findViewById<TextView>(R.id.pn_txt)
        var txt_county = itemView.findViewById<TextView>(R.id.county_txt)
-        var btnDelete = itemView.findViewById<ImageButton>(R.id.delete_btn_gv)
-        var btnEdit = itemView.findViewById<ImageButton>(R.id.edit_btn_gv)
+        var btnDelete = itemView.findViewById<Button>(R.id.delete_btn_gv)
+        var btnEdit = itemView.findViewById<Button>(R.id.edit_btn_gv)
 
         fun bindView(governor: GovernorModel)
         {
             txt_fname.text  = governor.fname
             txt_dob.text  = governor.dob
+            txt_age.text  = governor.age
             txt_gender.text = governor.gender
             txt_address.text  = governor.address
             txt_city.text  = governor.city

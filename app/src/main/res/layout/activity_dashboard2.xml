@@ -133,7 +133,7 @@
 
           <!--card3-->
             <androidx.cardview.widget.CardView
-                android:foreground="@drawable/effect"
+                android:foreground="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:id="@+id/cardEdFarm"
                 android:layout_width="0dp"
@@ -188,7 +188,7 @@
 
             <!--card 4-->
             <androidx.cardview.widget.CardView
-                android:foreground="@drawable/effect"
+                android:foreground="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:id="@+id/cardReports"
                 android:layout_width="0dp"

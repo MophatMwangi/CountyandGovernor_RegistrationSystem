@@ -21,7 +21,7 @@
         <activity android:name=".recview.countyRecView" />
         <activity android:name=".recview.governorRecView" />
         <activity android:name=".views.GovernorForm" />
-        <activity android:name=".views.CountyForm" />
+        <activity android:name=".views.CountyForm"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

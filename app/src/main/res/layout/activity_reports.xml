@@ -4,145 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightGray"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".views.Reports">
     <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:id="@+id/ln"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:orientation="vertical"
         >
-
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="County Form"
-            android:textColor="@color/black"
-            android:textSize="45sp"
-            android:textStyle="bold"
 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Reports"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             />
     </LinearLayout>
 
     <ScrollView
-        android:layout_margin="5dp"
-        android:layout_marginTop="10dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lightGray">
+        android:background="@color/white">
+
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/lightGray"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="398dp"
-                android:layout_height="215dp"
-                android:layout_margin="1dp"
-                android:gravity="center"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
+            <LinearLayout
 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp"
+                >
+                <TextView
 
-                <!--<LinearLayout
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Number of Governors"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/f_name_txt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Full Name"
-                        android:fontFamily="serif"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/black"
-                        style="bold"
-                        />
-
-                </LinearLayout>
-
-
-
-                <LinearLayout
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="25dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Date of birth"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/dob_txt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Date of birth"
-                        android:textSize="18sp"
-                        android:fontFamily="serif"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/black"
-                        style="bold" />
-
-                </LinearLayout>
-
-
-
-                <LinearLayout
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginVertical="50dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
+                    android:text=" Report from the county module"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
 
-                    <TextView
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/lightGray"
+                android:gravity="center"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardMaxElevation="12dp"
+                >
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Gender"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        />
-                    <TextView
-                        android:id="@+id/gender_txt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Gender"
-                        android:fontFamily="serif"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/black"
-                        style="bold"
-                        />
 
-                </LinearLayout>-->
                 <LinearLayout
                     android:layout_marginStart="30dp"
                     android:layout_marginVertical="10dp"
@@ -152,7 +78,7 @@
                     >
 
                     <TextView
-
+                        android:layout_marginTop="35dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" Governors"
@@ -162,11 +88,12 @@
                         />
 
                     <TextView
+                        android:layout_marginBottom="25dp"
                         android:id="@+id/governors_txt"
                         style="bold"
-                        android:layout_width="20dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="140dp"
+                        android:layout_width="97dp"
+                        android:layout_height="match_parent"
                         android:fontFamily="serif"
                         android:text=""
                         android:textColor="@color/black"
@@ -179,130 +106,202 @@
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/baseline_person" />
 
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardMaxElevation="12dp"
+                android:backgroundTint="@color/lightGray"
+                >
+
+
                 <LinearLayout
                     android:layout_marginStart="30dp"
-                    android:layout_width="match_parent"
+                    android:layout_marginVertical="10dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="50dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    >
 
                     <TextView
+                        android:layout_marginTop="35dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="County"
-                        android:textColor="@color/black"
+                        android:text=" Counties"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        />
 
                     <TextView
-                        android:id="@+id/county_txt"
+                        android:layout_marginBottom="25dp"
+                        android:id="@+id/counties_txt"
                         style="bold"
-                        android:layout_width="26dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="140dp"
+                        android:layout_width="97dp"
+                        android:layout_height="match_parent"
                         android:fontFamily="serif"
                         android:text=""
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
-
-                <View
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@color/gray"/>
-
-
                 <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_marginTop="40dp"
+                    android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/baseline_location_city" />
 
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardMaxElevation="12dp"
+                android:backgroundTint="@color/lightGray"
+                >
+
+
                 <LinearLayout
-                    android:layout_width="330dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="85dp"
                     android:layout_marginStart="30dp"
-                    android:orientation="horizontal">
+                    android:layout_marginVertical="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
 
                     <TextView
+                        android:layout_marginTop="35dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hospital"
-                        android:textColor="@color/black"
+                        android:text=" Hospitals"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        />
 
                     <TextView
-                        android:id="@+id/hospital_txt"
+                        android:id="@+id/hospitals_txt"
                         style="bold"
-                        android:layout_width="257dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="25dp"
+                        android:layout_marginLeft="140dp"
+                        android:layout_width="97dp"
+                        android:layout_height="match_parent"
                         android:fontFamily="serif"
                         android:text=""
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
-
-                <View
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="80dp"
-                    android:background="@color/gray"/>
                 <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_marginTop="80dp"
+                    android:id="@+id/imageView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/baseline_local_hospital" />
 
 
+            </androidx.cardview.widget.CardView>
 
-                <View
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="120dp"
-                    android:background="@color/gray"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardMaxElevation="12dp"
+                android:gravity="center"
+                android:backgroundTint="@color/lightGray"
+           >
 
+
+                <LinearLayout
+                    android:layout_marginStart="30dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_marginTop="35dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" schools"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_marginBottom="25dp"
+                        android:id="@+id/schools_txt"
+                        style="bold"
+                        android:layout_marginLeft="140dp"
+                        android:layout_width="97dp"
+                        android:layout_height="match_parent"
+                        android:fontFamily="serif"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
                 <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_marginTop="120dp"
+                    android:id="@+id/imageView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/baseline_school" />
 
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardMaxElevation="12dp"
+                android:gravity="center"
+                android:backgroundTint="@color/lightGray">
+
+
                 <LinearLayout
-                    android:layout_width="333dp"
-                    android:layout_height="36dp"
-                    android:layout_marginVertical="125dp"
                     android:layout_marginStart="30dp"
-                    android:orientation="horizontal">
+                    android:layout_marginVertical="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
 
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="School"
-                        android:textColor="@color/black"
+                        android:text=" Population"
+                        android:layout_marginTop="35dp"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        />
 
                     <TextView
-                        android:id="@+id/school_txt"
+                        android:id="@+id/populations_txt"
                         style="bold"
-                        android:layout_width="117dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="25dp"
+                        android:layout_width="97dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="140dp"
                         android:fontFamily="serif"
                         android:text=""
                         android:textColor="@color/black"
@@ -310,41 +309,149 @@
 
                 </LinearLayout>
 
-                <View
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_person" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                app:cardCornerRadius="10dp"
+                android:backgroundTint="@color/lightGray">
+
+
+                <LinearLayout
+                    android:layout_marginStart="30dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Area"
+                        android:layout_marginTop="35dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/areas_txt"
+                        style="bold"
+                        android:layout_marginBottom="25dp"
+                        android:layout_width="97dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="140dp"
+                        android:fontFamily="serif"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_person" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Population Chart"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardMaxElevation="12dp"
+                android:gravity="center"
+                android:backgroundTint="@color/lightGray">
+
+                      <com.github.mikephil.charting.charts.LineChart
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:id="@+id/Lchart"
+                          android:layout_margin="10dp"
+                          />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Buble Chart"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardMaxElevation="12dp"
+                android:gravity="center"
+                android:backgroundTint="@color/lightGray">
+
+                <com.github.mikephil.charting.charts.BubbleChart
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="160dp"
-                    android:background="@color/gray"/>
-
-
+                    android:layout_height="match_parent"
+                    android:id="@+id/Bchart"
+                    android:layout_margin="10dp"
+                    />
 
 
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="389dp"
-                android:layout_height="322dp"
-                android:layout_marginTop="60dp"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="398dp"
-                android:layout_height="215dp"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-
-            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
+
+
+
 
 
     </ScrollView>
